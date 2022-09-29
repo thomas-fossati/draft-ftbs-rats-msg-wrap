@@ -51,6 +51,32 @@ TODO Introduction
 {::boilerplate bcp14-tagged}
 
 
+# CDDL
+
+~~~ cddl
+{::include cddl/cmw.cddl}
+~~~
+
+## Examples
+
+~~~ cbor-diag
+{::include cddl/example-cbor-1.diag}
+~~~
+{: #fig-example-cbor artwork-align="left"
+   title="CBOR encoding"}
+
+~~~ cbor-diag
+{::include cddl/example-json-1.diag}
+~~~
+{: #fig-example-json artwork-align="left"
+   title="JSON encoding"}
+
+~~~ cbor-diag
+1668576818(h'abcdabcd')
+~~~
+{: #fig-example-cbor-tag artwork-align="left"
+   title="CBOR tag"}
+
 # Security Considerations
 
 TODO Security
