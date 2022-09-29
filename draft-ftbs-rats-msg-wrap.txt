@@ -66,9 +66,11 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  Normative References
+   3.  CDDL
+     3.1.  Examples
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  Normative References
    Acknowledgments
    Authors' Addresses
 
@@ -84,15 +86,79 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+3.  CDDL
+
+   cmw = [ type, value ]
+
+   type = coap-content-format / media-type
+
+   coap-content-format = uint .size 2
+   media-type = text .abnf ("media-type" .det RFC6838)
+
+   value = cbor-bytes / base64-string
+
+   cbor-bytes = bytes
+   base64-string = text .regexp "[A-Za-z0-9_=-]+"
+
+   RFC6838 = '
+   media-type = type-name "/" subtype-name *1("+" suffix) parameters
+
+   type-name = restricted-name
+   subtype-name = restricted-name
+
+   ; see https://www.iana.org/assignments/media-type-structured-suffix/
+   suffix = "xml" / "json" / "ber" / "cbor" / "der" / "fastinfoset" /
+            "wbxml" / "zip" / "tlv" / "json-seq" / "sqlite3" / "jwt" /
+            "gzip" / "cbor-seq" / "zstd"
+
+   parameters = *(";" parameter-name "=" parameter-value)
+
+   parameter-name = restricted-name
+   parameter-value = *VCHAR
+
+   restricted-name = restricted-name-first *126restricted-name-chars
+   restricted-name-first  = ALPHA / DIGIT
+   restricted-name-chars  = ALPHA / DIGIT / "!" / "#" / "$" / "&" / "-" /
+                            "^" / "_"
+   restricted-name-chars =/ "." ; Characters before first dot always
+                                ; specify a facet name
+   restricted-name-chars =/ "+" ; Characters after last plus always
+                                ; specify a structured syntax suffix
+
+   VCHAR = %x21-7E            ; Visible (printing) characters
+   ALPHA = %x41-5A / %x61-7A  ; A-Z / a-z
+   DIGIT = %x30-39            ; 0-9
+   '
+
+3.1.  Examples
+
+   [
+     30001,
+     h'abcdabcd'
+   ]
+
+                          Figure 1: CBOR encoding
+
+   [
+     "application/vnd.example.cmw",
+     "q82rzQ=="
+   ]
+
+                          Figure 2: JSON encoding
+
+   1668576818(h'abcdabcd')
+
+                             Figure 3: CBOR tag
+
+4.  Security Considerations
 
    TODO Security
 
-4.  IANA Considerations
+5.  IANA Considerations
 
    TODO IANA
 
-5.  Normative References
+6.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
