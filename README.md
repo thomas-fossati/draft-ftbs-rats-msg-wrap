@@ -1,6 +1,6 @@
-# TODO - Your title
+# RATS Conceptual Messages Wrapper
 
-This is the working area for the individual Internet-Draft, "TODO - Your title".
+This is the working area for the individual Internet-Draft, "RATS Conceptual Messages Wrapper".
 
 * [Editor's Copy](https://thomas-fossati.github.io/draft-ftbs-rats-msg-wrap/#go.draft-ftbs-rats-msg-wrap.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ftbs-rats-msg-wrap)
