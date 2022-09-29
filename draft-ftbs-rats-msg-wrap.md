@@ -1,6 +1,8 @@
 ---
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
+v: 3
+
+title: "RATS Conceptual Messages Wrapper"
+abbrev: "RATS CMW"
 docname: draft-ftbs-rats-msg-wrap-latest
 category: std
 
@@ -14,11 +16,18 @@ smart_quotes: no
 pi: [toc, sortrefs, symrefs]
 
 author:
- -
-    ins: H. Tschofenig
-    name: Hannes Tschofenig
-    organization: Arm Limited
-    email: hannes.tschofenig@arm.com
+ - name: Hannes Tschofenig
+   organization: arm
+   email: hannes.tschofenig@arm.com
+ - name: Henk Birkolz
+   organization: Fraunhofer SIT
+   email: henk.birkholz@sit.fraunhofer.de
+ - name: Ned Smith
+   organization: Intel
+   email: ned.smith@intel.com
+ - name: Thomas Fossati
+   organization: arm
+   email: thomas.fossati@arm.com
 
 normative:
 
@@ -49,7 +58,7 @@ TODO Security
 
 # IANA Considerations
 
-This document has no IANA actions.
+TODO IANA
 
 
 
