@@ -1,7 +1,7 @@
 ---
 title: "TODO - Your title"
 abbrev: "TODO - Abbreviation"
-docname: draft-ftbs-rats-msg-wrap
+docname: draft-ftbs-rats-msg-wrap-latest
 category: std
 
 ipr: trust200902
