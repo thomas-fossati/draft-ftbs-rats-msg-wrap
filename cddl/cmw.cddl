@@ -3,12 +3,12 @@ cmw = [ type, value ]
 type = coap-content-format / media-type
 
 coap-content-format = uint .size 2
-media-type = text .abnf ("media-type" .det RFC6838)
+media-type = text .abnf ("media-type" .cat RFC6838)
 
 value = cbor-bytes / base64-string
 
 cbor-bytes = bytes
-base64-string = text .regexp "[A-Za-z0-9_=-]+"
+base64-string = text .regexp "[A-Za-z0-9_-]+"
 
 RFC6838 = '
 media-type = type-name "/" subtype-name *1("+" suffix) parameters
