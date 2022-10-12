@@ -68,8 +68,8 @@ Table of Contents
    1.  Introduction
    2.  Conventions and Definitions
    3.  Conceptual Message Wrapper Encodings
-     3.1.  Type and Value Array
-     3.2.  CBOR Tags derived from CoAP Content Formats
+     3.1.  CMW Array
+     3.2.  CMW CBOR Tags
    4.  Examples
    5.  Security Considerations
    6.  IANA Considerations
@@ -103,21 +103,25 @@ Table of Contents
 
 3.  Conceptual Message Wrapper Encodings
 
-   Two different RATS Conceptual Message Wrapper (CMW) data types are
-   defined: one using a CBOR or JSON array (Section 3.1), another using
-   CBOR tags (Section 3.2).
+   Two types of RATS Conceptual Message Wrapper (CMW) are specified in
+   this document:
 
-3.1.  Type and Value Array
+   1.  a CMW using a CBOR or a JSON array (Section 3.1)
 
-   The CMW described in Figure 1 is a CDDL array of two elements:
+   2.  a CMW based on CBOR tags (Section 3.2).
 
-   *  type: a string encoding a media type [RFC6838] or an unsigned
-      integer corresponding to a CoAP Content-Format [RFC7252]
+3.1.  CMW Array
 
-   *  value: the RATS conceptual message serialisation according to the
-      specified type.
+   The CMW array illustrated in Figure 1 is composed of two members:
 
-   This kind of CMW can be encoded as CBOR [STD94] or JSON [RFC8259].
+   *  type: ether a text string representing a media-type [RFC6838] or
+      an unsigned integer corresponding to a CoAP Content-Format
+      [RFC7252]
+
+   *  value: the RATS conceptual message serialized according to the
+      value defined in the type member.
+
+   A CMW array can be encoded as CBOR [STD94] or JSON [RFC8259].
 
    When using JSON, the value field is encoded as Base64 using the URL
    and filename safe alphabet (Section 5 of [RFC4648]) without padding.
@@ -169,15 +173,16 @@ Table of Contents
 
                         Figure 1: CDDL definition
 
-3.2.  CBOR Tags derived from CoAP Content Formats
+3.2.  CMW CBOR Tags
 
-   If a CoAP Content Format exists for the RATS conceptual message, the
+   CBOR Tags used as CMW are derived from CoAP Content Format values.
+   If a CoAP Content Format exists for a RATS conceptual message, the
    TN() transform defined in Appendix B of [RFC9277] can be used to
    derive a CBOR tag in range [1668546817, 1668612095].
 
 4.  Examples
 
-   The (equivalent) examples below assume the media type application/
+   The (equivalent) examples below assume the media-type application/
    vnd.example.rats-conceptual-msg has been registered alongside a
    corresponding CoAP content format 30001.  The CBOR tag 1668576818 is
    derived applying the TN transform as described in Section 3.2.
