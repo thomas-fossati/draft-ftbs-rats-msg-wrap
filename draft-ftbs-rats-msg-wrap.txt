@@ -2,13 +2,12 @@
 
 
 
-Remote ATtestation ProcedureS                              H. Tschofenig
-Internet-Draft                                                       arm
-Intended status: Standards Track                              H. Birkolz
-Expires: 15 April 2023                                    Fraunhofer SIT
-                                                                N. Smith
-                                                                   Intel
+Remote ATtestation ProcedureS                                 H. Birkolz
+Internet-Draft                                            Fraunhofer SIT
+Intended status: Standards Track                                N. Smith
+Expires: 15 April 2023                                             Intel
                                                               T. Fossati
+                                                           H. Tschofenig
                                                                      arm
                                                          12 October 2022
 
@@ -287,11 +286,6 @@ Acknowledgments
 
 Authors' Addresses
 
-   Hannes Tschofenig
-   arm
-   Email: hannes.tschofenig@arm.com
-
-
    Henk Birkolz
    Fraunhofer SIT
    Email: henk.birkholz@sit.fraunhofer.de
@@ -305,3 +299,8 @@ Authors' Addresses
    Thomas Fossati
    arm
    Email: thomas.fossati@arm.com
+
+
+   Hannes Tschofenig
+   arm
+   Email: hannes.tschofenig@arm.com
