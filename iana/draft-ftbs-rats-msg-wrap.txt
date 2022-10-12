@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                              H. Tschofenig
 Internet-Draft                                                       arm
 Intended status: Standards Track                              H. Birkolz
-Expires: 14 April 2023                                    Fraunhofer SIT
+Expires: 15 April 2023                                    Fraunhofer SIT
                                                                 N. Smith
                                                                    Intel
                                                               T. Fossati
                                                                      arm
-                                                         11 October 2022
+                                                         12 October 2022
 
 
                     RATS Conceptual Messages Wrapper
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 April 2023.
+   This Internet-Draft will expire on 15 April 2023.
 
 Copyright Notice
 
@@ -208,8 +208,8 @@ Table of Contents
 
    When registering a new media type for evidence, in addition to its
    syntactical description, the author SHOULD provide a public and
-   stable description of the signing and verification procedures
-   associated with the data format.
+   stable description of the signing and appraisal procedures associated
+   with the data format.
 
 7.  References
 
