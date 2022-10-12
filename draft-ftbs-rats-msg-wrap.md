@@ -18,9 +18,6 @@ smart_quotes: no
 pi: [toc, sortrefs, symrefs]
 
 author:
- - name: Hannes Tschofenig
-   organization: arm
-   email: hannes.tschofenig@arm.com
  - name: Henk Birkolz
    organization: Fraunhofer SIT
    email: henk.birkholz@sit.fraunhofer.de
@@ -30,6 +27,9 @@ author:
  - name: Thomas Fossati
    organization: arm
    email: thomas.fossati@arm.com
+ - name: Hannes Tschofenig
+   organization: arm
+   email: hannes.tschofenig@arm.com
 
 normative:
   RFC4648: base64
