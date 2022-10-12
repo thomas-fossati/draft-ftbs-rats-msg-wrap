@@ -76,7 +76,7 @@ defined in {{-rats-arch}}.
 Two types of RATS Conceptual Message Wrapper (CMW) are specified in this
 document:
 
-1.) a CMW using a CBOR or a JSON array ({{type-n-val}})
+1. a CMW using a CBOR or a JSON array ({{type-n-val}})
 
 2.) a CMW based on CBOR tags ({{cbor-tag}}).
 
