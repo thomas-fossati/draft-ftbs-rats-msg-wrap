@@ -78,7 +78,7 @@ document:
 
 1. a CMW using a CBOR or a JSON array ({{type-n-val}})
 
-2.) a CMW based on CBOR tags ({{cbor-tag}}).
+2. a CMW based on CBOR tags ({{cbor-tag}}).
 
 ## CMW Array {#type-n-val}
 
