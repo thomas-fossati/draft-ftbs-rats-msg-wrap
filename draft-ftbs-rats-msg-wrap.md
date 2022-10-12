@@ -90,7 +90,7 @@ The CMW array illustrated in {{fig-cddl}} is composed of two members:
 * value: the RATS conceptual message serialized according to the
   value defined in the type member.
 
-A CMW Array can be encoded as CBOR {{-cbor}} or JSON {{-json}}.
+A CMW array can be encoded as CBOR {{-cbor}} or JSON {{-json}}.
 
 When using JSON, the value field is encoded as Base64 using the URL and
 filename safe alphabet (Section 5 of {{-base64}}) without padding.
