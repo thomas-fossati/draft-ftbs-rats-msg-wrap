@@ -141,7 +141,7 @@ TODO Security
 
 When registering a new media type for evidence, in addition to its
 syntactical description, the author SHOULD provide a public and stable
-description of the signing and verification procedures associated with
+description of the signing and appraisal procedures associated with
 the data format.
 
 
