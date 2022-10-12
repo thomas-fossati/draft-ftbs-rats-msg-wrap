@@ -11,7 +11,8 @@
 <meta content="Hannes Tschofenig" name="author">
 <meta content="
        This document defines two encapsulation formats for RATS conceptual
-messages. 
+messages (e.g., evidence, attestation results, endorsements and
+reference values.) 
     " name="description">
 <meta content="xml2rfc 3.15.0" name="generator">
 <meta content="evidence" name="keyword">
@@ -1090,7 +1091,8 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document defines two encapsulation formats for RATS conceptual
-messages.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+messages (e.g., evidence, attestation results, endorsements and
+reference values.)<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-discussion-venues">
@@ -1203,10 +1205,35 @@ messages.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">This document defines two encapsulation formats for RATS conceptual
-messages (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-architecture-22#section-8" class="relref">Section 8</a> of [<a href="#I-D.ietf-rats-architecture" class="cite xref">I-D.ietf-rats-architecture</a>]</span>).<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">TODO use cases (TLS, cert extensions, long-term storage, use in API
-payloads, other)<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-1">The RATS architecture defines a handful of conceptual messages
+(<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-architecture-22#section-8" class="relref">Section 8</a> of [<a href="#I-D.ietf-rats-architecture" class="cite xref">I-D.ietf-rats-architecture</a>]</span>). Each conceptual message can have multiple
+serialization formats (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-architecture-22#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-rats-architecture" class="cite xref">I-D.ietf-rats-architecture</a>]</span>). The same serialized
+message may have to be transported via different protocols - for
+example, EAT <span>[<a href="#I-D.ietf-rats-eat" class="cite xref">I-D.ietf-rats-eat</a>]</span> evidence in a "background check" topological
+arrangement, AR4SI <span>[<a href="#I-D.ietf-rats-ar4si" class="cite xref">I-D.ietf-rats-ar4si</a>]</span> attestation results in "passport"
+mode.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">In order to minimize the cost associated with registration and maximize
+interoperability, it is desirable to reuse their typing information
+across such boundaries.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">This document defines two encapsulation formats for RATS conceptual
+messages that aim to achieve the goals stated above.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">These encapsulation formats are designed to be:<a href="#section-1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1-5.1">Self-describing - which removes the dependency on the framing provided
+by the embedding protocol (or the storage system) to convey exact
+typing information.<a href="#section-1-5.1" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="section-1-5.2">Based on media types - which allows amortising their registration cost
+across many different usage scenarios.<a href="#section-1-5.2" class="pilcrow">¶</a>
+</li>
+      </ul>
+<p id="section-1-6">A protocol designer could use these formats, for example, to convey
+evidence, endorsements or reference values in certificates and CRLs
+extensions (<span>[<a href="#DICE-arch" class="cite xref">DICE-arch</a>]</span>), to embed attesation results or evidence as
+first class authentication credentials in TLS handshake messages
+<span>[<a href="#I-D.fossati-tls-attestation" class="cite xref">I-D.fossati-tls-attestation</a>]</span>, to transport attestation-related payloads in RESTful APIs,
+or for stable storage of attestation results in form of file system
+objects.<a href="#section-1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1447,9 +1474,25 @@ the data format.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="DICE-arch">[DICE-arch]</dt>
+        <dd>
+<span class="refAuthor">Trusted Computing Group</span>, <span class="refTitle">"DICE Attestation Architecture"</span>, <time datetime="2021-03" class="refDate">March 2021</time>, <span>&lt;<a href="https://trustedcomputinggroup.org/wp-content/uploads/DICE-Attestation-Architecture-r23-final.pdf">https://trustedcomputinggroup.org/wp-content/uploads/DICE-Attestation-Architecture-r23-final.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.fossati-tls-attestation">[I-D.fossati-tls-attestation]</dt>
+        <dd>
+<span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Fossati, T.</span>, <span class="refAuthor">Howard, P.</span>, <span class="refAuthor">Mihalcea, I.</span>, and <span class="refAuthor">Y. Deshpande</span>, <span class="refTitle">"Using Attestation in Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-fossati-tls-attestation-01</span>, <time datetime="2022-08-26" class="refDate">26 August 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-fossati-tls-attestation-01">https://datatracker.ietf.org/doc/html/draft-fossati-tls-attestation-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-rats-ar4si">[I-D.ietf-rats-ar4si]</dt>
+        <dd>
+<span class="refAuthor">Voit, E.</span>, <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Hardjono, T.</span>, <span class="refAuthor">Fossati, T.</span>, and <span class="refAuthor">V. Scarlata</span>, <span class="refTitle">"Attestation Results for Secure Interactions"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-ar4si-03</span>, <time datetime="2022-09-06" class="refDate">6 September 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-ar4si-03">https://datatracker.ietf.org/doc/html/draft-ietf-rats-ar4si-03</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="I-D.ietf-rats-architecture">[I-D.ietf-rats-architecture]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Thaler, D.</span>, <span class="refAuthor">Richardson, M.</span>, <span class="refAuthor">Smith, N.</span>, and <span class="refAuthor">W. Pan</span>, <span class="refTitle">"Remote Attestation Procedures Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-architecture-22</span>, <time datetime="2022-09-28" class="refDate">28 September 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-architecture-22">https://datatracker.ietf.org/doc/html/draft-ietf-rats-architecture-22</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-rats-eat">[I-D.ietf-rats-eat]</dt>
+      <dd>
+<span class="refAuthor">Lundblade, L.</span>, <span class="refAuthor">Mandyam, G.</span>, <span class="refAuthor">O'Donoghue, J.</span>, and <span class="refAuthor">C. Wallace</span>, <span class="refTitle">"The Entity Attestation Token (EAT)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-eat-16</span>, <time datetime="2022-10-09" class="refDate">9 October 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-16">https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-16</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1460,10 +1503,6 @@ the data format.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
 <p id="appendix-A-1">TODO acknowledge.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="appendix-A-2.1">vim: tw=72 ts=4 sw=4 et<a href="#appendix-A-2.1" class="pilcrow">¶</a>
-</li>
-      </ul>
 </section>
 </div>
 <div id="authors-addresses">

@@ -18,7 +18,8 @@ Expires: 15 April 2023                                             Intel
 Abstract
 
    This document defines two encapsulation formats for RATS conceptual
-   messages.
+   messages (e.g., evidence, attestation results, endorsements and
+   reference values.)
 
 Discussion Venues
 
@@ -80,11 +81,38 @@ Table of Contents
 
 1.  Introduction
 
-   This document defines two encapsulation formats for RATS conceptual
-   messages (Section 8 of [I-D.ietf-rats-architecture]).
+   The RATS architecture defines a handful of conceptual messages
+   (Section 8 of [I-D.ietf-rats-architecture]).  Each conceptual message
+   can have multiple serialization formats (Section 9 of
+   [I-D.ietf-rats-architecture]).  The same serialized message may have
+   to be transported via different protocols - for example, EAT
+   [I-D.ietf-rats-eat] evidence in a "background check" topological
+   arrangement, AR4SI [I-D.ietf-rats-ar4si] attestation results in
+   "passport" mode.
 
-   TODO use cases (TLS, cert extensions, long-term storage, use in API
-   payloads, other)
+   In order to minimize the cost associated with registration and
+   maximize interoperability, it is desirable to reuse their typing
+   information across such boundaries.
+
+   This document defines two encapsulation formats for RATS conceptual
+   messages that aim to achieve the goals stated above.
+
+   These encapsulation formats are designed to be:
+
+   *  Self-describing - which removes the dependency on the framing
+      provided by the embedding protocol (or the storage system) to
+      convey exact typing information.
+
+   *  Based on media types - which allows amortising their registration
+      cost across many different usage scenarios.
+
+   A protocol designer could use these formats, for example, to convey
+   evidence, endorsements or reference values in certificates and CRLs
+   extensions ([DICE-arch]), to embed attesation results or evidence as
+   first class authentication credentials in TLS handshake messages
+   [I-D.fossati-tls-attestation], to transport attestation-related
+   payloads in RESTful APIs, or for stable storage of attestation
+   results in form of file system objects.
 
 2.  Conventions and Definitions
 
@@ -270,6 +298,29 @@ Table of Contents
 
 7.2.  Informative References
 
+   [DICE-arch]
+              Trusted Computing Group, "DICE Attestation Architecture",
+              March 2021, <https://trustedcomputinggroup.org/wp-
+              content/uploads/DICE-Attestation-Architecture-
+              r23-final.pdf>.
+
+   [I-D.fossati-tls-attestation]
+              Tschofenig, H., Fossati, T., Howard, P., Mihalcea, I., and
+              Y. Deshpande, "Using Attestation in Transport Layer
+              Security (TLS) and Datagram Transport Layer Security
+              (DTLS)", Work in Progress, Internet-Draft, draft-fossati-
+              tls-attestation-01, 26 August 2022,
+              <https://datatracker.ietf.org/doc/html/draft-fossati-tls-
+              attestation-01>.
+
+   [I-D.ietf-rats-ar4si]
+              Voit, E., Birkholz, H., Hardjono, T., Fossati, T., and V.
+              Scarlata, "Attestation Results for Secure Interactions",
+              Work in Progress, Internet-Draft, draft-ietf-rats-ar4si-
+              03, 6 September 2022,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-rats-
+              ar4si-03>.
+
    [I-D.ietf-rats-architecture]
               Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote Attestation Procedures Architecture", Work
@@ -278,11 +329,16 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-ietf-rats-
               architecture-22>.
 
+   [I-D.ietf-rats-eat]
+              Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
+              Wallace, "The Entity Attestation Token (EAT)", Work in
+              Progress, Internet-Draft, draft-ietf-rats-eat-16, 9
+              October 2022, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-rats-eat-16>.
+
 Acknowledgments
 
    TODO acknowledge.
-
-   *  vim: tw=72 ts=4 sw=4 et
 
 Authors' Addresses
 
