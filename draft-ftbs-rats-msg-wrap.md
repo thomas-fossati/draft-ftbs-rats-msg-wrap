@@ -45,21 +45,57 @@ normative:
 
 informative:
   I-D.ietf-rats-architecture: rats-arch
+  I-D.ietf-rats-eat: rats-eat
+  I-D.ietf-rats-ar4si: rats-ar4si
+  I-D.fossati-tls-attestation: tls-a
+  DICE-arch:
+    author:
+      org: "Trusted Computing Group"
+    title: "DICE Attestation Architecture"
+    target: https://trustedcomputinggroup.org/wp-content/uploads/DICE-Attestation-Architecture-r23-final.pdf
+    date: March, 2021
 
 --- abstract
 
 This document defines two encapsulation formats for RATS conceptual
-messages.
+messages (e.g., evidence, attestation results, endorsements and
+reference values.)
 
 --- middle
 
 # Introduction
 
-This document defines two encapsulation formats for RATS conceptual
-messages ({{Section 8 of -rats-arch}}).
+The RATS architecture defines a handful of conceptual messages
+({{Section 8 of -rats-arch}}). Each conceptual message can have multiple
+serialization formats ({{Section 9 of -rats-arch}}). The same serialized
+message may have to be transported via different protocols - for
+example, EAT {{-rats-eat}} evidence in a "background check" topological
+arrangement, AR4SI {{-rats-ar4si}} attestation results in "passport"
+mode.
 
-TODO use cases (TLS, cert extensions, long-term storage, use in API
-payloads, other)
+In order to minimize the cost associated with registration and maximize
+interoperability, it is desirable to reuse their typing information
+across such boundaries.
+
+This document defines two encapsulation formats for RATS conceptual
+messages that aim to achieve the goals stated above.
+
+These encapsulation formats are designed to be:
+
+* Self-describing - which removes the dependency on the framing provided
+  by the embedding protocol (or the storage system) to convey exact
+  typing information.
+
+* Based on media types - which allows amortising their registration cost
+  across many different usage scenarios.
+
+A protocol designer could use these formats, for example, to convey
+evidence, endorsements or reference values in certificates and CRLs
+extensions ({{DICE-arch}}), to embed attesation results or evidence as
+first class authentication credentials in TLS handshake messages
+{{-tls-a}}, to transport attestation-related payloads in RESTful APIs,
+or for stable storage of attestation results in form of file system
+objects.
 
 # Conventions and Definitions
 
@@ -108,7 +144,7 @@ When using CBOR, the value field is serialized as a CBOR bytes string.
 CBOR Tags used as CMW are derived from CoAP Content Format values.
 If a CoAP Content Format exists for a RATS conceptual message, the
 TN() transform defined in {{Appendix B of RFC9277}} can be used to
-derive a CBOR tag in range [1668546817, 1668612095].
+derive a CBOR tag in range \[1668546817, 1668612095\].
 
 # Examples
 
@@ -154,5 +190,3 @@ the data format.
 {:numbered="false"}
 
 TODO acknowledge.
-
-- vim: tw=72 ts=4 sw=4 et
