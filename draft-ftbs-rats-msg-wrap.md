@@ -82,7 +82,7 @@ document:
 
 ## CMW Array {#type-n-val}
 
-The CMW Array illustrated in {{fig-cddl}} is composed of two members:
+The CMW array illustrated in {{fig-cddl}} is composed of two members:
 
 * type: ether a text string representing a media-type {{-media-types}} or an
   unsigned integer corresponding to a CoAP Content-Format {{-coap}}
