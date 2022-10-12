@@ -73,21 +73,24 @@ defined in {{-rats-arch}}.
 
 # Conceptual Message Wrapper Encodings
 
-Two different RATS Conceptual Message Wrapper (CMW) data types are
-defined: one using a CBOR or JSON array ({{type-n-val}}), another using
-CBOR tags ({{cbor-tag}}).
+Two types of RATS Conceptual Message Wrapper (CMW) are specified in this
+document: 
 
-## Type and Value Array {#type-n-val}
+1.) a CMW using a CBOR or a JSON array ({{type-n-val}})
 
-The CMW described in {{fig-cddl}} is a CDDL array of two elements:
+2.) a CMW based on CBOR tags ({{cbor-tag}}).
 
-* type: a string encoding a media type {{-media-types}} or an
+## CMW Array {#type-n-val}
+
+The CMW Array illustrated in {{fig-cddl}} is composed of two members:
+
+* type: ether a text string representing a media-type {{-media-types}} or an
   unsigned integer corresponding to a CoAP Content-Format {{-coap}}
 
-* value: the RATS conceptual message serialisation according to the
-  specified type.
+* value: the RATS conceptual message serialized according to the
+  value defined in the type member.
 
-This kind of CMW can be encoded as CBOR {{-cbor}} or JSON {{-json}}.
+A CMW Array can be encoded as CBOR {{-cbor}} or JSON {{-json}}.
 
 When using JSON, the value field is encoded as Base64 using the URL and
 filename safe alphabet (Section 5 of {{-base64}}) without padding.
@@ -100,15 +103,16 @@ When using CBOR, the value field is serialized as a CBOR bytes string.
 {: #fig-cddl artwork-align="left"
    title="CDDL definition"}
 
-## CBOR Tags derived from CoAP Content Formats {#cbor-tag}
+## CMW CBOR Tags {#cbor-tag}
 
-If a CoAP Content Format exists for the RATS conceptual message, the
+CBOR Tags used as CMW are derived from CoAP Content Format values.
+If a CoAP Content Format exists for a RATS conceptual message, the
 TN() transform defined in {{Appendix B of RFC9277}} can be used to
 derive a CBOR tag in range [1668546817, 1668612095].
 
 # Examples
 
-The (equivalent) examples below assume the media type
+The (equivalent) examples below assume the media-type
 `application/vnd.example.rats-conceptual-msg` has been registered
 alongside a corresponding CoAP content format `30001`.  The CBOR tag
 `1668576818` is derived applying the TN transform as described in
@@ -143,8 +147,6 @@ When registering a new media type for evidence, in addition to its
 syntactical description, the author SHOULD provide a public and stable
 description of the signing and appraisal procedures associated with
 the data format.
-
-
 
 --- back
 
