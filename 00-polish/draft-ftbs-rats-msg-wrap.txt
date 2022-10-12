@@ -108,11 +108,11 @@ Table of Contents
 
    1.  a CMW using a CBOR or a JSON array (Section 3.1)
 
-   2.) a CMW based on CBOR tags (Section 3.2).
+   2.  a CMW based on CBOR tags (Section 3.2).
 
 3.1.  CMW Array
 
-   The CMW Array illustrated in Figure 1 is composed of two members:
+   The CMW array illustrated in Figure 1 is composed of two members:
 
    *  type: ether a text string representing a media-type [RFC6838] or
       an unsigned integer corresponding to a CoAP Content-Format
