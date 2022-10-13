@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-11T01:21:59.189465+00:00",
+  "timestamp": "2022-10-13T01:26:43.061197+00:00",
   "repo": "thomas-fossati/draft-ftbs-rats-msg-wrap",
   "labels": [
     {
@@ -49,6 +49,512 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
-  "pulls": []
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOIGCt2M5Ttodl",
+      "title": "IANA considerations",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/issues/1",
+      "state": "CLOSED",
+      "author": "ionut-arm",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "thomas-fossati"
+      ],
+      "labels": [],
+      "body": "The IANA considerations section should be filled out to describe the requirements for defining, describing, and registering the media type formats that would be used within the wrapper.",
+      "createdAt": "2022-10-11T11:26:45Z",
+      "updatedAt": "2022-10-12T13:29:26Z",
+      "closedAt": "2022-10-12T13:29:26Z",
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOIGCt2M5TtoyJ",
+      "title": "Abstract & introduction",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/issues/2",
+      "state": "CLOSED",
+      "author": "ionut-arm",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "thomas-fossati"
+      ],
+      "labels": [],
+      "body": "The Abstract/Introduction sections are fairly thin - we should add more details about the expected use cases.",
+      "createdAt": "2022-10-11T11:27:49Z",
+      "updatedAt": "2022-10-12T17:24:52Z",
+      "closedAt": "2022-10-12T17:24:52Z",
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 3,
+      "id": "PR_kwDOIGCt2M5AmwzF",
+      "title": "more words to the abstract and intro section",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/pull/3",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #2\r\n\r\nSigned-off-by: Thomas Fossati <thomas.fossati@arm.com>",
+      "createdAt": "2022-10-11T22:36:57Z",
+      "updatedAt": "2022-10-12T17:29:47Z",
+      "baseRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "baseRefName": "main",
+      "baseRefOid": "6dfe433d1e720460515c1f54e092ecd6ec770d1c",
+      "headRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "headRefName": "intro++",
+      "headRefOid": "44469365d8cfbb63e8d07ab33d1f1bb0b1132a05",
+      "closedAt": "2022-10-12T17:24:52Z",
+      "mergedAt": "2022-10-12T17:24:52Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "32412e960b74219ae05b973af83bc21ece9ff7d5"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "/cc @ionut-arm",
+          "createdAt": "2022-10-11T22:49:53Z",
+          "updatedAt": "2022-10-11T22:49:53Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIGCt2M5D2F8m",
+          "commit": {
+            "abbreviatedOid": "4446936"
+          },
+          "author": "nedmsmith",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "minor wording issue",
+          "createdAt": "2022-10-11T23:13:51Z",
+          "updatedAt": "2022-10-11T23:14:44Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "Wording should say \"there are two formats\" rather than \"designed to have two formats\"",
+              "createdAt": "2022-10-11T23:13:51Z",
+              "updatedAt": "2022-10-11T23:14:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D4cly",
+          "commit": {
+            "abbreviatedOid": "4446936"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-12T10:52:29Z",
+          "updatedAt": "2022-10-12T10:52:29Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "I don't understand the editorial suggestion.  It doesn't seem to apply to L83.",
+              "createdAt": "2022-10-12T10:52:29Z",
+              "updatedAt": "2022-10-12T10:52:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D4hiG",
+          "commit": {
+            "abbreviatedOid": "4446936"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-10-12T11:08:56Z",
+          "updatedAt": "2022-10-12T11:08:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D5n8Q",
+          "commit": {
+            "abbreviatedOid": "4446936"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-12T14:13:52Z",
+          "updatedAt": "2022-10-12T14:13:52Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "Sounds like the suggested change would be along the lines of\r\n```suggestion\r\nThere are two encapsulation formats available:\r\n```",
+              "createdAt": "2022-10-12T14:13:52Z",
+              "updatedAt": "2022-10-12T14:13:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D578f",
+          "commit": {
+            "abbreviatedOid": "4446936"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-12T14:59:44Z",
+          "updatedAt": "2022-10-12T14:59:44Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "yes, but that doesn't work with what follows: the bulleted list describes the design criteria of the encaps, not the encaps themselves.",
+              "createdAt": "2022-10-12T14:59:44Z",
+              "updatedAt": "2022-10-12T14:59:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D5-L3",
+          "commit": {
+            "abbreviatedOid": "4446936"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-12T15:05:12Z",
+          "updatedAt": "2022-10-12T15:05:13Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "Ah, right, I see now!",
+              "createdAt": "2022-10-12T15:05:12Z",
+              "updatedAt": "2022-10-12T15:05:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D6v4G",
+          "commit": {
+            "abbreviatedOid": "4446936"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-12T17:24:45Z",
+          "updatedAt": "2022-10-12T17:24:45Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "closing this and merging.",
+              "createdAt": "2022-10-12T17:24:45Z",
+              "updatedAt": "2022-10-12T17:24:45Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOIGCt2M5Am1kS",
+      "title": "add recommendations for registration of evidence media types",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/pull/4",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #1\r\n\r\nSigned-off-by: Thomas Fossati <thomas.fossati@arm.com>",
+      "createdAt": "2022-10-11T23:03:51Z",
+      "updatedAt": "2022-10-12T13:29:25Z",
+      "baseRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "baseRefName": "main",
+      "baseRefOid": "6dfe433d1e720460515c1f54e092ecd6ec770d1c",
+      "headRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "headRefName": "iana",
+      "headRefOid": "c670403e4f38e414b684bba809b2a0263ff97826",
+      "closedAt": "2022-10-12T13:29:24Z",
+      "mergedAt": "2022-10-12T13:29:24Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "e1788b64f67e708191c66bd95516c6e1bde390fb"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "/cc @ionut-arm",
+          "createdAt": "2022-10-11T23:04:03Z",
+          "updatedAt": "2022-10-11T23:04:03Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIGCt2M5D2FOi",
+          "commit": {
+            "abbreviatedOid": "7db4eef"
+          },
+          "author": "nedmsmith",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-10-11T23:08:35Z",
+          "updatedAt": "2022-10-11T23:08:35Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D4HZh",
+          "commit": {
+            "abbreviatedOid": "7db4eef"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-12T09:46:42Z",
+          "updatedAt": "2022-10-12T09:46:43Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\ndescription of the signing and appraisal procedures associated with\r\n```",
+              "createdAt": "2022-10-12T09:46:42Z",
+              "updatedAt": "2022-10-12T09:46:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D4hej",
+          "commit": {
+            "abbreviatedOid": "c670403"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-10-12T11:08:43Z",
+          "updatedAt": "2022-10-12T11:08:43Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D5QO3",
+          "commit": {
+            "abbreviatedOid": "c670403"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-10-12T13:21:18Z",
+          "updatedAt": "2022-10-12T13:21:18Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOIGCt2M5AqCAS",
+      "title": "polish for initial submit",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/pull/5",
+      "state": "MERGED",
+      "author": "henkbirkholz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-10-12T14:09:52Z",
+      "updatedAt": "2022-10-12T17:24:07Z",
+      "baseRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "baseRefName": "main",
+      "baseRefOid": "e1788b64f67e708191c66bd95516c6e1bde390fb",
+      "headRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "headRefName": "00-polish",
+      "headRefOid": "7980f664747018f77c687b80285778966104a204",
+      "closedAt": "2022-10-12T17:24:02Z",
+      "mergedAt": "2022-10-12T17:24:02Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "d278add2ff92e9965f733e8be3a73339decc1f47"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIGCt2M5D6DAg",
+          "commit": {
+            "abbreviatedOid": "68755b1"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "LGTM; bunch of small editorial comments",
+          "createdAt": "2022-10-12T15:17:19Z",
+          "updatedAt": "2022-10-12T15:19:53Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\n1. a CMW using a CBOR or a JSON array ({{type-n-val}})\r\n```",
+              "createdAt": "2022-10-12T15:17:20Z",
+              "updatedAt": "2022-10-12T15:19:53Z"
+            },
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\n2. a CMW based on CBOR tags ({{cbor-tag}}).\r\n```",
+              "createdAt": "2022-10-12T15:17:27Z",
+              "updatedAt": "2022-10-12T15:19:53Z"
+            },
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\r\nThe CMW array illustrated in {{fig-cddl}} is composed of two members:\r\n```",
+              "createdAt": "2022-10-12T15:17:45Z",
+              "updatedAt": "2022-10-12T15:19:53Z"
+            },
+            {
+              "originalPosition": 30,
+              "body": "```suggestion\r\nA CMW array can be encoded as CBOR {{-cbor}} or JSON {{-json}}.\r\n```",
+              "createdAt": "2022-10-12T15:18:41Z",
+              "updatedAt": "2022-10-12T15:19:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D6IE7",
+          "commit": {
+            "abbreviatedOid": "68755b1"
+          },
+          "author": "nedmsmith",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-10-12T15:29:57Z",
+          "updatedAt": "2022-10-12T15:29:57Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D6OTN",
+          "commit": {
+            "abbreviatedOid": "68755b1"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-12T15:44:59Z",
+          "updatedAt": "2022-10-12T15:45:00Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "```suggestion\r\nIf a CoAP Content Format exists for a CMW, the\r\n```",
+              "createdAt": "2022-10-12T15:44:59Z",
+              "updatedAt": "2022-10-12T15:45:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D6PEm",
+          "commit": {
+            "abbreviatedOid": "68755b1"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-12T15:46:58Z",
+          "updatedAt": "2022-10-12T15:46:59Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\n* value: the CMW serialized according to the\r\n```",
+              "createdAt": "2022-10-12T15:46:58Z",
+              "updatedAt": "2022-10-12T15:46:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D6QUY",
+          "commit": {
+            "abbreviatedOid": "68755b1"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-12T15:48:56Z",
+          "updatedAt": "2022-10-12T15:48:56Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "mmm, it's really the fact that a content format is defined for the top-level \"conceptual message\" that enables the automatic CBOR tagging.",
+              "createdAt": "2022-10-12T15:48:56Z",
+              "updatedAt": "2022-10-12T15:48:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5D6SKX",
+          "commit": {
+            "abbreviatedOid": "68755b1"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-12T15:53:29Z",
+          "updatedAt": "2022-10-12T15:53:29Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "the CMW is the whole she-bang, not just the value.",
+              "createdAt": "2022-10-12T15:53:29Z",
+              "updatedAt": "2022-10-12T15:53:29Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOIGCt2M5Aqjiq",
+      "title": "Moving me last on the author's list",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/pull/6",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-10-12T15:49:53Z",
+      "updatedAt": "2022-10-12T17:24:23Z",
+      "baseRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "baseRefName": "main",
+      "baseRefOid": "e1788b64f67e708191c66bd95516c6e1bde390fb",
+      "headRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "headRefName": "hannestschofenig-patch-1",
+      "headRefOid": "72a60f18490094e18d1ac37af6852057a38773ed",
+      "closedAt": "2022-10-12T17:24:20Z",
+      "mergedAt": "2022-10-12T17:24:20Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "f391d28bc5076790ff6ec909b57f00fe2578bf32"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIGCt2M5D6Xxg",
+          "commit": {
+            "abbreviatedOid": "72a60f1"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": ":-(",
+          "createdAt": "2022-10-12T16:08:23Z",
+          "updatedAt": "2022-10-12T16:08:23Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
 }
