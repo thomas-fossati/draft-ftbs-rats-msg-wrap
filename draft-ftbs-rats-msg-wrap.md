@@ -91,7 +91,7 @@ These encapsulation formats are designed to be:
 
 A protocol designer could use these formats, for example, to convey
 evidence, endorsements or reference values in certificates and CRLs
-extensions ({{DICE-arch}}), to embed attesation results or evidence as
+extensions ({{DICE-arch}}), to embed attestation results or evidence as
 first class authentication credentials in TLS handshake messages
 {{-tls-a}}, to transport attestation-related payloads in RESTful APIs,
 or for stable storage of attestation results in form of file system
