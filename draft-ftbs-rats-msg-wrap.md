@@ -66,12 +66,14 @@ reference values.)
 # Introduction
 
 The RATS architecture defines a handful of conceptual messages
-({{Section 8 of -rats-arch}}). Each conceptual message can have multiple
-serialization formats ({{Section 9 of -rats-arch}}). The same serialized
-message may have to be transported via different protocols - for
-example, EAT {{-rats-eat}} evidence in a "background check" topological
-arrangement, AR4SI {{-rats-ar4si}} attestation results in "passport"
-mode.
+(see {{Section 8 of -rats-arch}}), such as evidence and attestation results. 
+Each conceptual message can have multiple claims encoding and serialization
+formats ({{Section 9 of -rats-arch}}). Such serialized message may
+have to be transported via different protocols - for example, evidence 
+using an EAT {{-rats-eat}} encoding serialized as a CBOR payload in 
+a "background check" topological arrangement, or attestation results as 
+Attestation Results for Secure Interactions (AR4SI) {{-rats-ar4si}} payloads
+in "passport" mode.
 
 In order to minimize the cost associated with registration and maximize
 interoperability, it is desirable to reuse their typing information
@@ -174,7 +176,16 @@ alongside a corresponding CoAP content format `30001`.  The CBOR tag
 
 # Security Considerations
 
-TODO Security
+This document defines two encapsulation formats for RATS
+conceptual messages. The messages themselves and their 
+encoding ensure security protection. For this reason
+there are no further security requirements raised by 
+the introduction of this encapsulation.
+
+Changing the encapsulation of a payload by an adversary
+will result in incorrect processing of the encapsulated 
+messages and this will subsequently lead to a processing 
+error. 
 
 
 # IANA Considerations
