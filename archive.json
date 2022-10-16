@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-13T01:26:43.061197+00:00",
+  "timestamp": "2022-10-16T01:40:37.811232+00:00",
   "repo": "thomas-fossati/draft-ftbs-rats-msg-wrap",
   "labels": [
     {
@@ -552,6 +552,48 @@
           "body": ":-(",
           "createdAt": "2022-10-12T16:08:23Z",
           "updatedAt": "2022-10-12T16:08:23Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOIGCt2M5AywSz",
+      "title": "Updated Introduction and Security Consideration Section",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/pull/7",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-10-14T07:19:53Z",
+      "updatedAt": "2022-10-14T07:24:07Z",
+      "baseRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "baseRefName": "main",
+      "baseRefOid": "126c33c9bb0dc32474447f6b4eec60eee88df217",
+      "headRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "headRefName": "hannestschofenig-patch-1",
+      "headRefOid": "7098d4373c80737f63cf6411b9c48364c5495dbd",
+      "closedAt": "2022-10-14T07:24:04Z",
+      "mergedAt": "2022-10-14T07:24:04Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "359fa1f9a2795da4c58ecf3a122d6e66df30249b"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIGCt2M5EEKgR",
+          "commit": {
+            "abbreviatedOid": "7098d43"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "\ud83d\udc4d ",
+          "createdAt": "2022-10-14T07:23:47Z",
+          "updatedAt": "2022-10-14T07:23:47Z",
           "comments": []
         }
       ]
