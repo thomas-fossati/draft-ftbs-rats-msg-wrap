@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-16T01:40:37.811232+00:00",
+  "timestamp": "2022-10-20T01:24:45.570134+00:00",
   "repo": "thomas-fossati/draft-ftbs-rats-msg-wrap",
   "labels": [
     {
@@ -84,6 +84,22 @@
       "createdAt": "2022-10-11T11:27:49Z",
       "updatedAt": "2022-10-12T17:24:52Z",
       "closedAt": "2022-10-12T17:24:52Z",
+      "comments": []
+    },
+    {
+      "number": 8,
+      "id": "I_kwDOIGCt2M5UYe7t",
+      "title": "what about pre-existing CBOR tags?",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/issues/8",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "We need to define how to deal with CBOR tags that exist independently of a CoAP C-F.",
+      "createdAt": "2022-10-19T23:36:07Z",
+      "updatedAt": "2022-10-19T23:36:07Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -594,6 +610,46 @@
           "body": "\ud83d\udc4d ",
           "createdAt": "2022-10-14T07:23:47Z",
           "updatedAt": "2022-10-14T07:23:47Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOIGCt2M5BJbKb",
+      "title": "clarify how to deal with pre-existing CBOR tags",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/pull/9",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "(also `make fix-lint` to remove trailing whitespaces.)\r\n\r\nFix #8\r\n\r\nSigned-off-by: Thomas Fossati <thomas.fossati@arm.com>",
+      "createdAt": "2022-10-19T23:40:03Z",
+      "updatedAt": "2022-10-20T00:13:17Z",
+      "baseRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "baseRefName": "main",
+      "baseRefOid": "359fa1f9a2795da4c58ecf3a122d6e66df30249b",
+      "headRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
+      "headRefName": "clarify",
+      "headRefOid": "147936d65c1c44f133e4375fc65104cfb5ce90c9",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIGCt2M5Ec0Qx",
+          "commit": {
+            "abbreviatedOid": "147936d"
+          },
+          "author": "nedmsmith",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-10-20T00:13:17Z",
+          "updatedAt": "2022-10-20T00:13:17Z",
           "comments": []
         }
       ]
