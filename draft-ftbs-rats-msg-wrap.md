@@ -164,9 +164,9 @@ conceptual message independently of a CoAP Content Format (i.e., it is
 not obtained by applying the TN() transform), it can be readily used as
 an encapsulation without the extra processing described in {{cbor-tag}}.
 
-A consumer can always distinguish tags that have been derived via TN()
-from tags that are not, and therefore apply the right decapsulation on
-receive.
+A consumer can always distinguish tags that have been derived via TN(),
+which all fall in the \[1668546817, 1668612095\] range, from tags that
+are not, and therefore apply the right decapsulation on receive.
 
 # Examples
 
