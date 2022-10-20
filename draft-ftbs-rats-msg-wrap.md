@@ -58,20 +58,24 @@ informative:
 --- abstract
 
 This document defines two encapsulation formats for RATS conceptual
-messages (e.g., evidence, attestation results, endorsements and
+messages (i.e., evidence, attestation results, endorsements and
 reference values.)
+
+The first format uses a CBOR or JSON array with two members: one for the
+type, another for the value.  The other format wraps the value in a CBOR
+byte string and prepends a CBOR tag to convey the type information.
 
 --- middle
 
 # Introduction
 
 The RATS architecture defines a handful of conceptual messages
-(see {{Section 8 of -rats-arch}}), such as evidence and attestation results. 
+(see {{Section 8 of -rats-arch}}), such as evidence and attestation results.
 Each conceptual message can have multiple claims encoding and serialization
 formats ({{Section 9 of -rats-arch}}). Such serialized message may
-have to be transported via different protocols - for example, evidence 
-using an EAT {{-rats-eat}} encoding serialized as a CBOR payload in 
-a "background check" topological arrangement, or attestation results as 
+have to be transported via different protocols - for example, evidence
+using an EAT {{-rats-eat}} encoding serialized as a CBOR payload in
+a "background check" topological arrangement, or attestation results as
 Attestation Results for Secure Interactions (AR4SI) {{-rats-ar4si}} payloads
 in "passport" mode.
 
@@ -122,8 +126,9 @@ document:
 
 The CMW array illustrated in {{fig-cddl}} is composed of two members:
 
-* type: ether a text string representing a media-type {{-media-types}} or an
-  unsigned integer corresponding to a CoAP Content-Format {{-coap}}
+* type: either a text string representing a media-type (and optional
+  parameters) {{-media-types}} or an unsigned integer corresponding to a
+  CoAP Content-Format {{-coap}}
 
 * value: the RATS conceptual message serialized according to the
   value defined in the type member.
@@ -133,7 +138,7 @@ A CMW array can be encoded as CBOR {{-cbor}} or JSON {{-json}}.
 When using JSON, the value field is encoded as Base64 using the URL and
 filename safe alphabet (Section 5 of {{-base64}}) without padding.
 
-When using CBOR, the value field is serialized as a CBOR bytes string.
+When using CBOR, the value field is encoded as a CBOR byte string.
 
 ~~~ cddl
 {::include cddl/cmw.cddl}
@@ -146,7 +151,22 @@ When using CBOR, the value field is serialized as a CBOR bytes string.
 CBOR Tags used as CMW are derived from CoAP Content Format values.
 If a CoAP Content Format exists for a RATS conceptual message, the
 TN() transform defined in {{Appendix B of RFC9277}} can be used to
-derive a CBOR tag in range \[1668546817, 1668612095\].
+derive a corresponding CBOR tag in range \[1668546817, 1668612095\].
+
+The RATS conceptual message is first serialized according to the Content
+Format associated with the tag and then encoded as a CBOR byte string,
+to which the tag is prepended.
+
+### Use of Pre-existing CBOR Tags
+
+If a CBOR tag has been registered in association with a certain RATS
+conceptual message independently of a CoAP Content Format (i.e., it is
+not obtained by applying the TN() transform), it can be readily used as
+an encapsulation without the extra processing described in {{cbor-tag}}.
+
+A consumer can always distinguish tags that have been derived via TN(),
+which all fall in the \[1668546817, 1668612095\] range, from tags that
+are not, and therefore apply the right decapsulation on receive.
 
 # Examples
 
@@ -177,15 +197,15 @@ alongside a corresponding CoAP content format `30001`.  The CBOR tag
 # Security Considerations
 
 This document defines two encapsulation formats for RATS
-conceptual messages. The messages themselves and their 
+conceptual messages. The messages themselves and their
 encoding ensure security protection. For this reason
-there are no further security requirements raised by 
+there are no further security requirements raised by
 the introduction of this encapsulation.
 
 Changing the encapsulation of a payload by an adversary
-will result in incorrect processing of the encapsulated 
-messages and this will subsequently lead to a processing 
-error. 
+will result in incorrect processing of the encapsulated
+messages and this will subsequently lead to a processing
+error.
 
 
 # IANA Considerations
