@@ -61,7 +61,7 @@ This document defines two encapsulation formats for RATS conceptual
 messages (i.e., evidence, attestation results, endorsements and
 reference values.)
 
-The first format uses a CBOR or JSON array with two slots: one for the
+The first format uses a CBOR or JSON array with two members: one for the
 type, another for the value.  The other format wraps the value in a CBOR
 byte string and prepends a CBOR tag to convey the type information.
 
