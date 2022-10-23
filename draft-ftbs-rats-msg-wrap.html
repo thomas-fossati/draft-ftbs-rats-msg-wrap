@@ -11,8 +11,11 @@
 <meta content="Hannes Tschofenig" name="author">
 <meta content="
        This document defines two encapsulation formats for RATS conceptual
-messages (e.g., evidence, attestation results, endorsements and
+messages (i.e., evidence, attestation results, endorsements and
 reference values.) 
+       The first format uses a CBOR or JSON array with two members: one for the
+type, another for the value.  The other format wraps the value in a CBOR
+byte string and prepends a CBOR tag to convey the type information. 
     " name="description">
 <meta content="xml2rfc 3.15.0" name="generator">
 <meta content="evidence" name="keyword">
@@ -22,7 +25,7 @@ reference values.)
 <meta content="draft-ftbs-rats-msg-wrap-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.15.0
-    Python 3.10.5
+    Python 3.10.8
     appdirs 1.4.4
     ConfigArgParse 1.5.3
     google-i18n-address 2.5.2
@@ -34,8 +37,8 @@ reference values.)
     MarkupSafe 2.1.1
     pycountry 22.3.5
     PyYAML 6.0
-    requests 2.27.1
-    setuptools 59.4.0
+    requests 2.28.1
+    setuptools 65.4.1
     six 1.16.0
 -->
 <link href="draft-ftbs-rats-msg-wrap.xml" rel="alternate" type="application/rfc+xml">
@@ -1047,7 +1050,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Birkolz, et al.</td>
-<td class="center">Expires 15 April 2023</td>
+<td class="center">Expires 26 April 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1060,12 +1063,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ftbs-rats-msg-wrap-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-10-12" class="published">12 October 2022</time>
+<time datetime="2022-10-23" class="published">23 October 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-04-15">15 April 2023</time></dd>
+<dd class="expires"><time datetime="2023-04-26">26 April 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1091,8 +1094,11 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document defines two encapsulation formats for RATS conceptual
-messages (e.g., evidence, attestation results, endorsements and
+messages (i.e., evidence, attestation results, endorsements and
 reference values.)<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-2">The first format uses a CBOR or JSON array with two members: one for the
+type, another for the value.  The other format wraps the value in a CBOR
+byte string and prepends a CBOR tag to convey the type information.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-discussion-venues">
@@ -1124,7 +1130,7 @@ reference values.)<a href="#section-abstract-1" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 15 April 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 April 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1167,6 +1173,11 @@ reference values.)<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-cmw-cbor-tags" class="internal xref">CMW CBOR Tags</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
+                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-use-of-pre-existing-cbor-ta" class="internal xref">Use of Pre-existing CBOR Tags</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
@@ -1206,12 +1217,14 @@ reference values.)<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
 <p id="section-1-1">The RATS architecture defines a handful of conceptual messages
-(<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-architecture-22#section-8" class="relref">Section 8</a> of [<a href="#I-D.ietf-rats-architecture" class="cite xref">I-D.ietf-rats-architecture</a>]</span>). Each conceptual message can have multiple
-serialization formats (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-architecture-22#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-rats-architecture" class="cite xref">I-D.ietf-rats-architecture</a>]</span>). The same serialized
-message may have to be transported via different protocols - for
-example, EAT <span>[<a href="#I-D.ietf-rats-eat" class="cite xref">I-D.ietf-rats-eat</a>]</span> evidence in a "background check" topological
-arrangement, AR4SI <span>[<a href="#I-D.ietf-rats-ar4si" class="cite xref">I-D.ietf-rats-ar4si</a>]</span> attestation results in "passport"
-mode.<a href="#section-1-1" class="pilcrow">¶</a></p>
+(see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-architecture-22#section-8" class="relref">Section 8</a> of [<a href="#I-D.ietf-rats-architecture" class="cite xref">I-D.ietf-rats-architecture</a>]</span>), such as evidence and attestation results.
+Each conceptual message can have multiple claims encoding and serialization
+formats (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-architecture-22#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-rats-architecture" class="cite xref">I-D.ietf-rats-architecture</a>]</span>). Such serialized message may
+have to be transported via different protocols - for example, evidence
+using an EAT <span>[<a href="#I-D.ietf-rats-eat" class="cite xref">I-D.ietf-rats-eat</a>]</span> encoding serialized as a CBOR payload in
+a "background check" topological arrangement, or attestation results as
+Attestation Results for Secure Interactions (AR4SI) <span>[<a href="#I-D.ietf-rats-ar4si" class="cite xref">I-D.ietf-rats-ar4si</a>]</span> payloads
+in "passport" mode.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">In order to minimize the cost associated with registration and maximize
 interoperability, it is desirable to reuse their typing information
 across such boundaries.<a href="#section-1-2" class="pilcrow">¶</a></p>
@@ -1229,7 +1242,7 @@ across many different usage scenarios.<a href="#section-1-5.2" class="pilcrow">�
       </ul>
 <p id="section-1-6">A protocol designer could use these formats, for example, to convey
 evidence, endorsements or reference values in certificates and CRLs
-extensions (<span>[<a href="#DICE-arch" class="cite xref">DICE-arch</a>]</span>), to embed attesation results or evidence as
+extensions (<span>[<a href="#DICE-arch" class="cite xref">DICE-arch</a>]</span>), to embed attestation results or evidence as
 first class authentication credentials in TLS handshake messages
 <span>[<a href="#I-D.fossati-tls-attestation" class="cite xref">I-D.fossati-tls-attestation</a>]</span>, to transport attestation-related payloads in RESTful APIs,
 or for stable storage of attestation results in form of file system
@@ -1271,8 +1284,9 @@ document:<a href="#section-3-1" class="pilcrow">¶</a></p>
         </h3>
 <p id="section-3.1-1">The CMW array illustrated in <a href="#fig-cddl" class="auto internal xref">Figure 1</a> is composed of two members:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.1-2.1">type: ether a text string representing a media-type <span>[<a href="#RFC6838" class="cite xref">RFC6838</a>]</span> or an
-unsigned integer corresponding to a CoAP Content-Format <span>[<a href="#RFC7252" class="cite xref">RFC7252</a>]</span><a href="#section-3.1-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-3.1-2.1">type: either a text string representing a media-type (and optional
+parameters) <span>[<a href="#RFC6838" class="cite xref">RFC6838</a>]</span> or an unsigned integer corresponding to a
+CoAP Content-Format <span>[<a href="#RFC7252" class="cite xref">RFC7252</a>]</span><a href="#section-3.1-2.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-3.1-2.2">value: the RATS conceptual message serialized according to the
 value defined in the type member.<a href="#section-3.1-2.2" class="pilcrow">¶</a>
@@ -1281,7 +1295,7 @@ value defined in the type member.<a href="#section-3.1-2.2" class="pilcrow">¶</
 <p id="section-3.1-3">A CMW array can be encoded as CBOR <span>[<a href="#STD94" class="cite xref">STD94</a>]</span> or JSON <span>[<a href="#RFC8259" class="cite xref">RFC8259</a>]</span>.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
 <p id="section-3.1-4">When using JSON, the value field is encoded as Base64 using the URL and
 filename safe alphabet (Section 5 of <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>]</span>) without padding.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
-<p id="section-3.1-5">When using CBOR, the value field is serialized as a CBOR bytes string.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
+<p id="section-3.1-5">When using CBOR, the value field is encoded as a CBOR byte string.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
 <span id="name-cddl-definition"></span><div id="fig-cddl">
 <figure id="figure-1">
           <div class="alignLeft art-cddl art-text artwork" id="section-3.1-6.1">
@@ -1343,7 +1357,24 @@ DIGIT = %x30-39            ; 0-9
 <p id="section-3.2-1">CBOR Tags used as CMW are derived from CoAP Content Format values.
 If a CoAP Content Format exists for a RATS conceptual message, the
 TN() transform defined in <span><a href="https://rfc-editor.org/rfc/rfc9277#appendix-B" class="relref">Appendix B</a> of [<a href="#RFC9277" class="cite xref">RFC9277</a>]</span> can be used to
-derive a CBOR tag in range [1668546817, 1668612095].<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+derive a corresponding CBOR tag in range [1668546817, 1668612095].<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">The RATS conceptual message is first serialized according to the Content
+Format associated with the tag and then encoded as a CBOR byte string,
+to which the tag is prepended.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<div id="use-of-pre-existing-cbor-tags">
+<section id="section-3.2.1">
+          <h4 id="name-use-of-pre-existing-cbor-ta">
+<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-use-of-pre-existing-cbor-ta" class="section-name selfRef">Use of Pre-existing CBOR Tags</a>
+          </h4>
+<p id="section-3.2.1-1">If a CBOR tag has been registered in association with a certain RATS
+conceptual message independently of a CoAP Content Format (i.e., it is
+not obtained by applying the TN() transform), it can be readily used as
+an encapsulation without the extra processing described in <a href="#cbor-tag" class="auto internal xref">Section 3.2</a>.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.1-2">A consumer can always distinguish tags that have been derived via TN(),
+which all fall in the [1668546817, 1668612095] range, from tags that
+are not, and therefore apply the right decapsulation on receive.<a href="#section-3.2.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 </section>
@@ -1404,7 +1435,15 @@ alongside a corresponding CoAP content format <code>30001</code>.  The CBOR tag
       <h2 id="name-security-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">TODO Security<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">This document defines two encapsulation formats for RATS
+conceptual messages. The messages themselves and their
+encoding ensure security protection. For this reason
+there are no further security requirements raised by
+the introduction of this encapsulation.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">Changing the encapsulation of a payload by an adversary
+will result in incorrect processing of the encapsulated
+messages and this will subsequently lead to a processing
+error.<a href="#section-5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1492,7 +1531,7 @@ the data format.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="I-D.ietf-rats-eat">[I-D.ietf-rats-eat]</dt>
       <dd>
-<span class="refAuthor">Lundblade, L.</span>, <span class="refAuthor">Mandyam, G.</span>, <span class="refAuthor">O'Donoghue, J.</span>, and <span class="refAuthor">C. Wallace</span>, <span class="refTitle">"The Entity Attestation Token (EAT)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-eat-16</span>, <time datetime="2022-10-09" class="refDate">9 October 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-16">https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-16</a>&gt;</span>. </dd>
+<span class="refAuthor">Lundblade, L.</span>, <span class="refAuthor">Mandyam, G.</span>, <span class="refAuthor">O'Donoghue, J.</span>, and <span class="refAuthor">C. Wallace</span>, <span class="refTitle">"The Entity Attestation Token (EAT)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-eat-17</span>, <time datetime="2022-10-22" class="refDate">22 October 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-17">https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-17</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
