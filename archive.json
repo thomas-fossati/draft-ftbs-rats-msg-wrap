@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-20T01:24:45.570134+00:00",
+  "timestamp": "2022-10-23T01:26:56.775268+00:00",
   "repo": "thomas-fossati/draft-ftbs-rats-msg-wrap",
   "labels": [
     {
@@ -91,14 +91,30 @@
       "id": "I_kwDOIGCt2M5UYe7t",
       "title": "what about pre-existing CBOR tags?",
       "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/issues/8",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "thomas-fossati",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "We need to define how to deal with CBOR tags that exist independently of a CoAP C-F.",
       "createdAt": "2022-10-19T23:36:07Z",
-      "updatedAt": "2022-10-19T23:36:07Z",
+      "updatedAt": "2022-10-20T12:00:04Z",
+      "closedAt": "2022-10-20T12:00:04Z",
+      "comments": []
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOIGCt2M5UdJ7L",
+      "title": "clearly describe encap/decap algorithm",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/issues/10",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "In order to avoid misunderstandings, it'd be beneficial to describe the encap/decap algorithms in a more explicit manner",
+      "createdAt": "2022-10-20T16:30:57Z",
+      "updatedAt": "2022-10-20T16:30:57Z",
       "closedAt": null,
       "comments": []
     }
@@ -619,24 +635,26 @@
       "id": "PR_kwDOIGCt2M5BJbKb",
       "title": "clarify how to deal with pre-existing CBOR tags",
       "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/pull/9",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "thomas-fossati",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "(also `make fix-lint` to remove trailing whitespaces.)\r\n\r\nFix #8\r\n\r\nSigned-off-by: Thomas Fossati <thomas.fossati@arm.com>",
       "createdAt": "2022-10-19T23:40:03Z",
-      "updatedAt": "2022-10-20T00:13:17Z",
+      "updatedAt": "2022-10-20T12:00:07Z",
       "baseRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
       "baseRefName": "main",
       "baseRefOid": "359fa1f9a2795da4c58ecf3a122d6e66df30249b",
       "headRepository": "thomas-fossati/draft-ftbs-rats-msg-wrap",
       "headRefName": "clarify",
-      "headRefOid": "147936d65c1c44f133e4375fc65104cfb5ce90c9",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "f5e20f2b89c83600129868acae1dd282903aaee7",
+      "closedAt": "2022-10-20T12:00:03Z",
+      "mergedAt": "2022-10-20T12:00:03Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "4fa7a453398c51c1dcb01f6c6a60fea1de8e057c"
+      },
       "comments": [],
       "reviews": [
         {
@@ -651,6 +669,116 @@
           "createdAt": "2022-10-20T00:13:17Z",
           "updatedAt": "2022-10-20T00:13:17Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5Eedcc",
+          "commit": {
+            "abbreviatedOid": "147936d"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "lgtm",
+          "createdAt": "2022-10-20T08:55:51Z",
+          "updatedAt": "2022-10-20T09:00:52Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\nThe first format uses a CBOR or JSON array with two members: one for the\r\n```",
+              "createdAt": "2022-10-20T08:55:51Z",
+              "updatedAt": "2022-10-20T09:00:52Z"
+            },
+            {
+              "originalPosition": 10,
+              "body": "```suggestion\r\nThe first format uses a CBOR or JSON array with two members: one for the\r\ntype, another for the value.  The other format wraps the value in a CBOR\r\nbyte string and prepends a CBOR tag to convey the type information.\r\n```",
+              "createdAt": "2022-10-20T08:57:26Z",
+              "updatedAt": "2022-10-20T09:00:52Z"
+            },
+            {
+              "originalPosition": 38,
+              "body": "good",
+              "createdAt": "2022-10-20T08:58:19Z",
+              "updatedAt": "2022-10-20T09:00:52Z"
+            },
+            {
+              "originalPosition": 67,
+              "body": "yes",
+              "createdAt": "2022-10-20T08:59:24Z",
+              "updatedAt": "2022-10-20T09:00:52Z"
+            },
+            {
+              "originalPosition": 71,
+              "body": "Maybe a quick 'how' to be on the safest side?",
+              "createdAt": "2022-10-20T09:00:04Z",
+              "updatedAt": "2022-10-20T09:00:52Z"
+            },
+            {
+              "originalPosition": 92,
+              "body": "if your process has exactly zero other ways of checking that is",
+              "createdAt": "2022-10-20T09:00:43Z",
+              "updatedAt": "2022-10-20T09:00:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5EeuRN",
+          "commit": {
+            "abbreviatedOid": "147936d"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-20T09:35:05Z",
+          "updatedAt": "2022-10-20T09:35:05Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "not sure why this got duplicated.  resolved in a846601",
+              "createdAt": "2022-10-20T09:35:05Z",
+              "updatedAt": "2022-10-20T09:35:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5EewMv",
+          "commit": {
+            "abbreviatedOid": "147936d"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-20T09:40:15Z",
+          "updatedAt": "2022-10-20T09:40:15Z",
+          "comments": [
+            {
+              "originalPosition": 71,
+              "body": "done in f5e20f2\r\n",
+              "createdAt": "2022-10-20T09:40:15Z",
+              "updatedAt": "2022-10-20T09:40:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIGCt2M5EewZR",
+          "commit": {
+            "abbreviatedOid": "147936d"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-20T09:40:47Z",
+          "updatedAt": "2022-10-20T09:40:47Z",
+          "comments": [
+            {
+              "originalPosition": 92,
+              "body": "not sure what you mean here?",
+              "createdAt": "2022-10-20T09:40:47Z",
+              "updatedAt": "2022-10-20T09:40:47Z"
+            }
+          ]
         }
       ]
     }
