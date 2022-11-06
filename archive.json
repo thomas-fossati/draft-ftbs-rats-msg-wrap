@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-23T01:26:56.775268+00:00",
+  "timestamp": "2022-11-06T01:15:34.214359+00:00",
   "repo": "thomas-fossati/draft-ftbs-rats-msg-wrap",
   "labels": [
     {
@@ -115,6 +115,22 @@
       "body": "In order to avoid misunderstandings, it'd be beneficial to describe the encap/decap algorithms in a more explicit manner",
       "createdAt": "2022-10-20T16:30:57Z",
       "updatedAt": "2022-10-20T16:30:57Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOIGCt2M5Vm6MQ",
+      "title": "fix IANA section",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/issues/11",
+      "state": "OPEN",
+      "author": "nedmsmith",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Should include \u201cThis document does not require any IANA actions.\u201d\r\ndiscuss if normative for authors should exist here.",
+      "createdAt": "2022-11-04T15:30:27Z",
+      "updatedAt": "2022-11-04T15:30:27Z",
       "closedAt": null,
       "comments": []
     }
