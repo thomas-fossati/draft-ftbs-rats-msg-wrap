@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-06T01:15:34.214359+00:00",
+  "timestamp": "2022-11-10T01:13:55.404996+00:00",
   "repo": "thomas-fossati/draft-ftbs-rats-msg-wrap",
   "labels": [
     {
@@ -131,6 +131,38 @@
       "body": "Should include \u201cThis document does not require any IANA actions.\u201d\r\ndiscuss if normative for authors should exist here.",
       "createdAt": "2022-11-04T15:30:27Z",
       "updatedAt": "2022-11-04T15:30:27Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOIGCt2M5V1A4T",
+      "title": "Reuse terminology from RFC 9193",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/issues/12",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "RFC9193 provides an [excellent glossary](https://www.rfc-editor.org/rfc/rfc9193.html#name-terminology) for all things \"media types\".  We should stick to that.\r\n\r\n",
+      "createdAt": "2022-11-08T10:59:18Z",
+      "updatedAt": "2022-11-08T10:59:18Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOIGCt2M5V1F93",
+      "title": "RFC6383 rule in the CDDL is wrong",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/issues/13",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Email from @cabo:\r\n\r\n> The CDDL rule RFC6383 doesn\u2019t quite mirror what RFC 6383 actually says.\r\n> You put in a new rule for suffixes, but the way you are using \u201c+\u201d, these will become part of the restricted-name; maybe you need to take out\r\n>\r\n```\r\n   restricted-name-chars =/ \"+\" ; Characters after last plus always\r\n                                ; specify a structured syntax suffix\r\n```",
+      "createdAt": "2022-11-08T11:11:37Z",
+      "updatedAt": "2022-11-08T11:17:53Z",
       "closedAt": null,
       "comments": []
     }
