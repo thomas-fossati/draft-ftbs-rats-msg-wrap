@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-10T01:13:55.404996+00:00",
+  "timestamp": "2022-11-22T01:11:14.134123+00:00",
   "repo": "thomas-fossati/draft-ftbs-rats-msg-wrap",
   "labels": [
     {
@@ -165,6 +165,30 @@
       "updatedAt": "2022-11-08T11:17:53Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 14,
+      "id": "I_kwDOIGCt2M5W5uFB",
+      "title": "Carl's review points",
+      "url": "https://github.com/thomas-fossati/draft-ftbs-rats-msg-wrap/issues/14",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "* In the third sentence of intro, message should be plural\r\n* The definition of RFC6838 in the CDDL looks to be incomplete\r\n* Re: suffixes, I was assuming certificate extension support would use the DER/BER values. What about CRL extensions? Is PEM needed as well?\r\n* The structured suffix link in Section 3.1 is broken.\r\n* Maybe reference EAT media types spec as initial values of interest.",
+      "createdAt": "2022-11-21T13:41:14Z",
+      "updatedAt": "2022-11-21T13:42:19Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "OWNER",
+          "body": "/cc @carl-wallace",
+          "createdAt": "2022-11-21T13:42:19Z",
+          "updatedAt": "2022-11-21T13:42:19Z"
+        }
+      ]
     }
   ],
   "pulls": [
